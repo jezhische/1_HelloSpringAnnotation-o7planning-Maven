@@ -4,4 +4,8 @@ public interface Language {
     public String getGreeting();
 
     public String getBye();
+
+    public void setName(String name);
+
+    public String getName();
 }
