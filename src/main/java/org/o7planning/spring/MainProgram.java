@@ -4,10 +4,12 @@ import org.o7planning.spring.bean.MyComponent;
 import org.o7planning.spring.bean.MyRepository;
 import org.o7planning.spring.config.AppConfiguration;
 import org.o7planning.spring.lang.Language;
+import org.o7planning.spring.langImpl.English;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.annotation.AnnotationConfigApplicationContext;
+import org.springframework.context.support.ClassPathXmlApplicationContext;
 import org.springframework.context.support.PropertySourcesPlaceholderConfigurer;
 import org.springframework.core.env.Environment;
 
@@ -64,5 +66,18 @@ public class MainProgram {
         System.out.println(languageE.getName());
         languageE.setName("hru");
         System.out.println(languageE.getName());
+
+        System.out.println("-------------------------------------");
+        ApplicationContext ctxXML = new ClassPathXmlApplicationContext("spring.xml");
+        Language engman = (Language) ctxXML.getBean("eng");
+        System.out.println(engman.getGreeting());
+        System.out.println(engman.getName());
+        System.out.println("${English}");
+
+
+
+        Language lEng = (Language)ctxXML.getBean(((English)engman).getEngPropName());
+        System.out.println(lEng.getName());
+//        System.out.println(((English) lEng).getFromEnv());
     }
 }

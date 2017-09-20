@@ -15,6 +15,7 @@ http://www.springframework.org/schema/context
 http://www.springframework.org/schema/context/spring-context-4.3.xsd">
 
     <context:annotation-config/>
+    <!--<context:property-placeholder location="classpath:application.properties" />-->
 
     <import resource="utilities.xml"/>
 
@@ -24,7 +25,7 @@ http://www.springframework.org/schema/context/spring-context-4.3.xsd">
             <!-- <list value-type="client.properties"/> - можно так? -->
             <list>
                 <!-- путь в данном случае определяется через директиву classpath, но можно чз. указание пути: -->
-                <value>classpath:client.properties</value>
+                <value>classpath:application.properties</value>
             </list>
         </property>
         <!-- игнорирование отсутствующих ресурсов - чтобы не выскочило исключение: -->
@@ -35,12 +36,12 @@ http://www.springframework.org/schema/context/spring-context-4.3.xsd">
         <property name="systemPropertiesModeName" value="SYSTEM_PROPERTIES_MODE_OVERRIDE"/>
     </bean>
 
-    <!-- создание отдельного бина clientProps типа java.util.properties из файла "src/main/resources/client.properties": -->
-    <util:properties id="clientProps" location="classpath:client.properties"/>
-    <!-- создание map с соответствующими записями для использования в "app" как отдельного бина: -->
-    <util:map id="loggerMap">
-        <entry key="INFO" value-ref="consoleEventLogger"/>
-        <entry key="ERROR" value-ref="combinedEventLogger"/>
-    </util:map>
+    <!--&lt;!&ndash; создание отдельного бина applicationProps типа java.util.properties из файла "src/main/resources/application.properties": &ndash;&gt;-->
+    <!--<util:properties id="applicationProps" location="classpath:application.properties"/>-->
+    <!--&lt;!&ndash; создание map с соответствующими записями для использования в "app" как отдельного бина: &ndash;&gt;-->
+    <!--<util:map id="loggerMap">-->
+        <!--<entry key="INFO" value-ref="consoleEventLogger"/>-->
+        <!--<entry key="ERROR" value-ref="combinedEventLogger"/>-->
+    <!--</util:map>-->
 
 </beans>

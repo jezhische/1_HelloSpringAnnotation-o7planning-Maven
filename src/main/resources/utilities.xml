@@ -11,4 +11,8 @@ http://www.springframework.org/schema/beans/spring-beans-4.3.xsd
 http://www.springframework.org/schema/util
 http://www.springframework.org/schema/util/spring-util-4.3.xsd">
 
+    <bean id="eng" class="org.o7planning.spring.langImpl.English">
+        <property name="name" value="${engName}"/>
+    </bean>
+
 </beans>
