@@ -13,7 +13,7 @@ import org.springframework.core.env.Environment;
 
 @Configuration
 @ComponentScan({/*"org/o7planning/spring/service", "org/o7planning/spring/repository",*/ "org/o7planning/spring/bean"})
-@PropertySource("application.properties")
+@PropertySource("classpath:application.properties")
 public class AppConfiguration {
 
     @Autowired
